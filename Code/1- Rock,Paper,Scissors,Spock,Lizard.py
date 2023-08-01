@@ -16,7 +16,7 @@
 #----------------------------------------------------------
 
 import random
-import simplegui
+import PySimpleGUI as sg
 
 
 # helper functions
@@ -37,7 +37,7 @@ def name_to_number(name):
     elif name == "scissors":
         return 4
     else:
-        print "Error: Not a valid name" 
+        print ("Error: Not a valid name")
 
 #----------------------------------------------------------
 #----------------------------------------------------------
@@ -58,7 +58,7 @@ def number_to_name(number):
     elif number == 4:
         return "scissors" 
     else:
-        print "Error: Not a valid number" 
+        print ("Error: Not a valid number") 
     
     
 #----------------------------------------------------------    
@@ -67,35 +67,33 @@ def number_to_name(number):
 
 def rpsls(player_choice): 
     
-    print "------------"
-    print "------------"    
+    print ("------------")
+    print ("------------")    
     
-    print "Player chooses " + player_choice 
+    print ("Player chooses ") + player_choice 
     
     player_number = name_to_number(player_choice)
     
-	comp_number = random.randrange(0,5)
+    comp_number = random.randrange(0,5)
     
     comp_choice = number_to_name(comp_number)
     
-    print "Computer chooses " + comp_choice 
+    print ("Computer chooses ") + comp_choice 
     
     diff = (comp_number - player_number) % 5
 
     if diff == 1 or diff == 2:
-        print "Computer Wins"
+        print ("Computer Wins")
     elif diff == 3 or diff == 4:
-        print "Player Wins"
+        print ("Player Wins")
     else:
-        print "Player and computer tie!"
+        print ("Player and computer tie!")
  
 
 #----------------------------------------------------------
 #----------------------------------------------------------
 #----------------------------------------------------------    
-#----------------------------------------------------------    
-    
-	
+#---------------------------------------------------------- 
 # Event Handlers
 
 def get_input(inp):
@@ -104,14 +102,14 @@ def get_input(inp):
 			inp == "Spock" or inp == "scissors"):		
 		rpsls(inp)
 	else:
-		print "Error: Invalid Input"
+		print ("Error: Invalid Input")
 	
 	
 
 
 # Creating a Frame
 
-frame = simplegui.create_frame("Rock-paper-scissors-lizard-Spock",200,200)
+frame = sg.create_frame("Rock-paper-scissors-lizard-Spock",200,200)
 
 # Registering Handlers
 
